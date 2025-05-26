@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angularv9';
+  title = 'angular v9';
+  user = {
+    name: 'Manh',
+    age: 24
+  };
+  handler(event){
+    console.log('Hello', event);
+  }
 }
