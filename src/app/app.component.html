@@ -5,43 +5,12 @@
   {{ user.name}}: {{ user.age}}
 </p>
 
-<input type="text" [value]="user.name" />
-<div *ngIf="user.age > 18; else under18">
-  <button type="button" (click)="handler($event)">Click me</button>
-</div>
-<ng-template #under18>
-  <p>You are under 18</p>
-</ng-template>
-<button (click)="user.age = user.age - 1"> - </button>
-{{ user.age }}
-<button (click)="user.age = user.age + 1"> + </button>
+<button (click)="isDanger = !isDanger">Toggle Danger</button>
+<br>
+<button (click)="isWarning = !isWarning">Toggle Warning</button>
+<br>
+<div [class]="classes"></div>
 
-<!--
-  - index: so thu tu cua item hien tai
-  - count: tong so item
-  - first: true neu item dau tien
-  - last: true neu item cuoi cung
-  - even: true neu item thu chan
-  - odd: true neu item thu le
-  - $implicit: item Implicit Context Variable
--->
-<ul>
-  <ng-container *ngIf="userList.length > 0; else noUser">
-    <li *ngFor="let u of userList; index as idx; count as total; first as isFirst; last as isLast; even as isEven; odd as isOdd">
-      <span>{{ u.id }} - {{ u.name }} : {{ u.phone }}</span>
-      <br>
-      <span>at index {{ idx }} out of {{ total }}</span>
-      <br>
-      <span *ngIf="isFirst">I am First dau</span>
-      <br>
-      <span *ngIf="isEven">I am Even chan</span>
-      <br>
-      <span *ngIf="isLast">I am Last cuoi cung</span>
-      <br>
-      <span *ngIf="isOdd">I am Odd le</span>
-    </li>
-  </ng-container>
-  <ng-template #noUser>
-    <li>No user found</li>
-  </ng-template>
-</ul>
+<p [style.--text-color]="isDanger ? 'red' : 'blue'" [style]="{ color: 'var(--text-color)', fontsize: '20px'}">
+  Start editing to see some magic happen!<br>
+</p>

@@ -12,4 +12,8 @@ export class HiComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  progress = 50;
+  backgroundColor = 'blue';
+  progressColor = 'green';
+
 }
