@@ -1,19 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-hi',
   templateUrl: './hi.component.html',
   styleUrls: ['./hi.component.css']
 })
-export class HiComponent implements OnInit {
+export class HiComponent {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-  progress = 50;
-  backgroundColor = 'blue';
-  progressColor = 'green';
 
 }
+

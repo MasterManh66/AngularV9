@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, QueryList, ViewChild, ViewChildren, ViewContainerRef } from '@angular/core';
+import { ToggleComponent } from './toggle/toggle.component';
 
 @Component({
   selector: 'app-root',
@@ -6,13 +7,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  @ViewChildren(ToggleComponent) toggleComps: QueryList<ToggleComponent>;
+  @ViewChild('nameInput', {static: true}) nameInput: ElementRef<HTMLInputElement>;
+
   title = 'angular v9';
   user = {
     name: 'Manh',
     age: 24
   };
+  isChecked = true;
+  showLast = true;
 
-  isDanger = true;
-  isWarning = true;
-  classes ="box red-border yellow-background";
+  ngOnInit() {
+    this.toggleComps.changes.subscribe(console.log);
+  }
+
+  ngAfterViewInit() {
+  }
 }

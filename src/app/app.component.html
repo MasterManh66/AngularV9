@@ -5,12 +5,15 @@
   {{ user.name}}: {{ user.age}}
 </p>
 
-<button (click)="isDanger = !isDanger">Toggle Danger</button>
-<br>
-<button (click)="isWarning = !isWarning">Toggle Warning</button>
-<br>
-<div [class]="classes"></div>
+<input #nameInput type="text" [ngModel]="title" (ngModelChange)="title = $event"/>
 
-<p [style.--text-color]="isDanger ? 'red' : 'blue'" [style]="{ color: 'var(--text-color)', fontsize: '20px'}">
-  Start editing to see some magic happen!<br>
-</p>
+<button (click)="showLast = !showLast">Toggle show last</button>
+
+<app-toggle [(checked)]="isChecked"></app-toggle>
+<app-toggle [(checked)]="isChecked"></app-toggle>
+<app-toggle [(checked)]="isChecked"></app-toggle>
+<ng-container *ngIf="showLast">
+  <app-toggle [(checked)]="isChecked"></app-toggle>
+
+</ng-container>
+<button #toggleButton>Toggle me</button>
